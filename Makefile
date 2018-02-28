@@ -9,10 +9,6 @@ $(info "CROSS_COMPILE=$(CROSS_COMPILE)")
 ARCH = aarch64
 $(info "ARCH=$(ARCH)")
 
-CC=$(CROSS_COMPILE)gcc
-LD=${CROSS_COMPILE}ld
-AR=${CROSS_COMPILE}ar
-
 # PATHS
 SRCDIR	= src
 SRCS	= $(SRCDIR)/aiop_tool.c $(SRCDIR)/aiop_cmd.c $(SRCDIR)/aiop_tool_dummy.c $(SRCDIR)/aiop_lib.c $(SRCDIR)/aiop_logger.c
@@ -29,6 +25,7 @@ CFLAGS += -I$(top_builddir)/include
 CFLAGS += -I$(top_builddir)/src
 CFLAGS += -I$(top_builddir)/src/vfio
 CFLAGS += -I$(top_builddir)/flib/mc
+CFLAGS += -I$(SDKTARGETSYSROOT)/usr/include
 
 #Flags passed on make command line
 CFLAGS += $(CMDFLAGS)

@@ -7,7 +7,8 @@ AR=${CROSS_COMPILE}ar
 
 TARGET=	libmcflib.a
 
-CFLAGS= -I$(PWD) -W -Wall -Wshadow -Wstrict-prototypes
+CFLAGS = -I$(PWD) -W -Wall -Wshadow -Wstrict-prototypes
+CFLAGS += -I$(SDKTARGETSYSROOT)/usr/include
 
 SOURCES=dpaiop.c \
 	mc_sys.c
@@ -24,7 +25,7 @@ $(TARGET):$(OBJECTS)
 
 .c.o:
 	 @echo "Compiling" $*.c
-	 $(CC) $(CFLAGS) -c $< -o $@ 2>/dev/null
+	 $(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "Cleaning up..."

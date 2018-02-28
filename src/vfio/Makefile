@@ -9,6 +9,7 @@ TARGET=	libvfio.a
 CFLAGS = -I$(PWD) -W -Wall -Wshadow -Wstrict-prototypes
 CFLAGS += -I./
 CFLAGS += -I../../include
+CFLAGS += -I$(SDKTARGETSYSROOT)/usr/include
 
 SOURCES=fsl_vfio.c
 
